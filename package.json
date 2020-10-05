@@ -2,7 +2,7 @@
   "name": "robotsjs",
   "version": "1.0.0",
   "description": "Robots.js is a tool used to generate robots.txt according to your rules. ",
-  "main": "build/index.js",
+  "main": "index.js",
   "scripts": {
     "test": ""
   },
