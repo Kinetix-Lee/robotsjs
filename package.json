@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "create": "node index.js create",
+    "rjs-help": "node index.js --help",
     "test": "node index.js test"
   },
   "repository": {
