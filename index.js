@@ -3,34 +3,34 @@
 
 import commander from 'commander';
 import chalk from 'chalk';
-import fs from 'fs';
+import fs, { readFileSync } from 'fs';
 import Generator from './class/generator.js';
 
 const program = new commander.Command();
 const gen = new Generator();
+const version = process.env.npm_package_version;
 
 // program.version(version);
 program
-  .option('-i, --in [file]', 'Specify input file. ', 'rules.json')
-  .option('-o, --out [file]', 'Specify output file. ', 'robots.txt')
+  .option('-i, --in [file]', 'Specify input file. ', 'config/rules.json')
+  .option('-o, --out [file]', 'Specify output file. ', 'config/robots.txt')
   .parse(process.argv);
 
+console.log(`Robots.js ${version}`);
+
+let rules, generated;
+rules = JSON.parse(fs.readFileSync(program.in, { flag: 'r' }));
+console.log(chalk.blue(`[I] Rules loaded from ${program.in}`));
+generated = gen.GenerateFromSource(rules);
+console.log(chalk.blue('[I] Robots.txt generated'));
+
 switch(program.args[0]) {
+  case 'create':
+    const output = fs.writeFileSync(program.out, generated);
+    console.log(chalk.blue('[Generation succeeded]'));
+    process.exit(0);
   case 'test':
-    let rules, generated;
-    console.log(chalk.blue('[Robots.js Test]'));
-
-    // 读取规则
-    rules = JSON.parse(fs.readFileSync('./config/rules.json', { flag: 'r' }));
-    console.log(chalk.blue('[I] Rules loaded'));
-    // console.log(chalk.blue('Rules: '));
-    // console.log(rules);
-
-    // 生成 robots.txt（但不写出）
-    generated = gen.GenerateFromSource(rules);
-    console.log(chalk.blue('[I] Robots.txt generated'));
-    // console.log(chalk.blue('Generated robots.txt: '));
-    // console.log(generated);
+    console.log(chalk.blue('[Test]'));
 
     // 检查 robots.txt 正确性
     console.log(chalk.blue('[I] Performing integrity check'));

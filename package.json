@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "create": "node index.js create",
     "test": "node index.js test"
   },
   "repository": {
