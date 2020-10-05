@@ -10,7 +10,7 @@ const program = new commander.Command();
 const gen = new Generator();
 const version = process.env.npm_package_version;
 
-// program.version(version);
+program.version(version);
 program
   .option('-i, --in [file]', 'Specify input file. ', 'config/rules.json')
   .option('-o, --out [file]', 'Specify output file. ', 'config/robots.txt')
