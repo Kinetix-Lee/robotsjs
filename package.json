@@ -1,0 +1,24 @@
+{
+  "name": "robotsjs",
+  "version": "1.0.0",
+  "description": "Robots.js is a tool used to generate robots.txt according to your rules. ",
+  "main": "build/index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kinetix-Lee/robotsjs.git"
+  },
+  "keywords": [
+    "robots",
+    "robots.txt",
+    "seo"
+  ],
+  "author": "Kinetix-Lee",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Kinetix-Lee/robotsjs/issues"
+  },
+  "homepage": "https://github.com/Kinetix-Lee/robotsjs#readme"
+}
